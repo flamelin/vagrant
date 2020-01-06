@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
      sudo rm /etc/nginx/sites-enabled/default
 
      # php config
-     sudo sed -i "s/;date.timezone =/date.timezone = Asia\/Taipei/"  /etc/php/7.2/fpm/php.ini
+     sudo sed -i "s@;date.timezone =@date.timezone = Asia/Taipei@"  /etc/php/7.2/fpm/php.ini
 
      # restart service
      sudo systemctl restart zabbix-server zabbix-agent nginx php7.2-fpm
