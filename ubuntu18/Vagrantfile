@@ -17,11 +17,5 @@ Vagrant.configure("2") do |config|
      sudo apt install -y php-fpm php-mysql
      sudo apt install -y snmpd
      sudo apt install -y snmp-mibs-downloader
-     sudo mv /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.bak
-     sudo touch /etc/snmp/snmpd.conf
-     echo "rocommunity public" | sudo tee /etc/snmp/snmpd.conf
-
-     # restart service
-     sudo service snmpd restart
   SHELL
 end
