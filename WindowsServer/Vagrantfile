@@ -117,4 +117,10 @@ Vagrant.configure("2") do |config|
         v.memory = MEMORY_MB
         v.cpus = CPUS
     end
+
+    # 讓 Windows Server 支援 ansible 透過 winrm 設定
+    config.vm.provision "shell", inline: <<-POWERSHELL
+        wget https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -OutFile ConfigureRemotingForAnsible.ps1
+        ./ConfigureRemotingForAnsible.ps1
+    POWERSHELL
 end
